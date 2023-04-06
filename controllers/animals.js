@@ -13,9 +13,9 @@ router.get("/", async (req, res) => {
   res.render("index.ejs", { animals: animals });
 });
 // NEW ANIMAL
-router.get("/new", (req, res) => {
-  res.render("new.ejs");
-});
+// router.get("/new", (req, res) => {
+//   res.render("new.ejs");
+// });
 
 // Posts
 router.post("/", async (req, res) => {
