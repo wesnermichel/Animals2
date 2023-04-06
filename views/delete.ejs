@@ -1,0 +1,10 @@
+<%- include( ../partials/header.ejs ) %>
+
+<body>
+<%- include( ../partials/head.ejs ) %>
+
+<form action="/animals/<%- animalToDelete._id %> _method=DELETE" method="POST">
+  <h1>Delete animal</h1>
+  <p>Are you sure you want to delete the animal <%- animal.name %>?</p>
+  <input type="submit" value="Delete">
+  </body>

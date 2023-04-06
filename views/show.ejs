@@ -1,0 +1,19 @@
+
+    <body>
+   
+
+
+    <article>
+        
+          <h3><%= animals.color %></h3>
+          <a href="/animals/<%= animals._id %>/edit"><button>Edit</button></a>
+          <form action="/animals/<%= animals._id %>?_method=DELETE" method="POST">
+            <input type="submit" value="Delete"/>
+          </form>
+          <a href="/animals/"><button>Back to Main</button></a>
+        </article>
+      <button> <a href="/Animals/edit"> Edit Animal</button>
+      <button> <a href="/Animals/"> Delete Animal</button>
+      <button> <a href="/Animals/"> Return to Home</button>
+    </body>
+</html>
