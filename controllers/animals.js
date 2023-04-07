@@ -31,10 +31,10 @@ router.get("/show/:id", async (req, res) => {
 });
 
 // EDIT
-router.get("edit/:id/", async (req, res) => {
-  const animal = await Animal.findById(req.params.id);
-  // const index = animals.indexOf(animal); that and line 39
-  res.render("/animals/edit.ejs", { animal: animal });
+router.get("/edit/:id/", async (req, res) => {
+  // const animal = await Animal.findById(req.params.id);
+  const index = animals.indexOf(animal);
+  res.render("/animals/edit.ejs", { animal: animal, index: index });
   //line above I removed , { animal: animal, index: index });
 });
 
