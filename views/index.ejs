@@ -12,6 +12,25 @@ body {
             text-align: center;
             background-color: #F0F0F0;
 }
+.card {
+    border: 1px #e7e7e7 solid;
+    background-color: #ffff;
+    margin: 15px 0px 15px 0px;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.container{
+width: 500px;
+}
+
+h3 {
+  background-color: #9b4dca;
+  padding: 10px;
+  border-radius: 10px 10px 0px 0px;
+}
+h3 > a {
+  color: #FFFF;
+}
 </style>
   <body>
     <%- include("./partials/header.ejs") %>
@@ -19,16 +38,20 @@ body {
   <a href="/animals/new %>">
         <button> Add Animal</button>
     </a>
+
+  <div class="container">
  <% for(let i = 0; i < animals.length; i++) { %>
  <% if(animals[i]) { %>
-    <h3><a href="/animals/show/<%= animals[i]._id %>"><%=animals[i]?.species %></a></h3>
+   <div class="card">
+     <h3><a href="/animals/show/<%= animals[i]._id %>"><%=animals[i]?.species %></a></h3>
     <p>Extinct: <%= animals[i]?.extinct %></p>
     <p>Location: <%= animals[i]?.location %></p>
-
     <p>Life Expectancy: <%= animals[i]?.lifeExpectancy %></p> 
+   </div>
+  
 <% }
   } %>
-  
+  </div>
 </body>
 </html>
 

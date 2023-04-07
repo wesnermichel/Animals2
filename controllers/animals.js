@@ -30,7 +30,6 @@ router.get("/show/:id", async (req, res) => {
 // EDIT
 router.get("/edit/:id/", async (req, res) => {
   const animal = await Animal.findById(req.params.id);
-
   res.render("edit.ejs", { animal });
 });
 
@@ -45,10 +44,13 @@ router.get("/seed", async (req, res) => {
 
 router.put("/:id", async (req, res) => {
   const id = req.params.id;
+  console.log("this post", req.body);
+
   req.body.extinct = req.body.extinct === "on" ? true : false;
   const animal = await Animal.findByIdAndUpdate(id, req.body, {
     new: true,
   });
+
   res.redirect("/animals");
 });
 
