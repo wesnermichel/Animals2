@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
   <%- include("./partials/head.ejs") %>
-
+<style>
+    table {
+  width: 100%;
+}
+th {
+  height: 30px;
+}
+body {
+            text-align: center;
+            background-color: #F0F0F0;
+}
+</style>
   <body>
     <%- include("./partials/header.ejs") %>
 <h1>Animal Index</h1>
-  <a href="/new %>">
+  <a href="/animals/new %>">
         <button> Add Animal</button>
     </a>
  <% for(let i = 0; i < animals.length; i++) { %>
