@@ -12,7 +12,7 @@ router.get("/", async (req, res) => {
 });
 //NEW ANIMAL
 router.get("/new", (req, res) => {
-  res.render("/animals/new.ejs");
+  res.render("new.ejs");
 });
 
 // Posts
@@ -32,9 +32,9 @@ router.get("/show/:id", async (req, res) => {
 
 // EDIT
 router.get("/edit/:id/", async (req, res) => {
-  // const animal = await Animal.findById(req.params.id);
-  const index = animals.indexOf(animal);
-  res.render("/animals/edit.ejs", { animal: animal, index: index });
+  const animal = await Animal.findById(req.params.id);
+  // const index = animals.indexOf(animal);
+  res.render("edit.ejs", { animal });
   //line above I removed , { animal: animal, index: index });
 });
 

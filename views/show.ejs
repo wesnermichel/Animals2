@@ -1,20 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/head.ejs") %>
 
-    <body>
-   
-
-
-    <article>
-        
+  <body>
+    <%- include("./partials/header.ejs") %>
+    <article>       
   <h3> Specie:<%= animal.species %>
    <p>Extinct: <%= animal.extinct %></p>
     <p>Location: <%= animal.location %></p>
     <p>Life Expectancy: <%= animal.lifeExpectancy %></p>
-   
-          
         </article>
-      <button> <a href="/Animals/edit/<% animal.id %>"> Edit Animal</button>
-       <a href="/aminals/<%= animal._id %>/edit"><button>Edit</button></a>
-      <button> <a href="/Animals/"> Return to Home</button>
+      <a href="/animals/edit/<%= animal._id %>/">Edit This Animal</a>
+      <br>
+      <a href="/animals/"> Return to Home
        <form action="/animals/<%= animal._id %>?_method=DELETE" method="POST">
             <input type="submit" value="Delete"/>
     </body>
