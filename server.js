@@ -1,16 +1,19 @@
+// Dependencies
+require("dotenv").config();
 const express = require("express");
-const { default: mongoose } = require("mongoose");
+const morgan = require("morgan");
+const methodOverride = require("method-override");
 const app = express();
+
+// MIDDLEWARE
+app.use(morgan("tiny")); //logging
+app.use(methodOverride("_method")); // override for put and delete requests from forms
+app.use(express.urlencoded({ extended: true })); // parse urlencoded request bodies
+app.use(express.static("public")); // serve files from public statically
 
 app.get("/", (req, res) => {
   res.send("default route");
 });
-
-// MIDDLEWARE
-app.set("views", "./views");
-app.set("view engine", "ejs");
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
 
 const animalController = require("./controllers/animals");
 app.use("/animals", animalController);

@@ -78,19 +78,17 @@
 
 // });
 
+// -----------------_ENTRIES-----------------------------
 
-
------------------_ENTRIES-----------------------------
-
-// { species: "Tyrannosaurus Rex", 
-// extinct: true, location: "North America", 
+// { species: "Tyrannosaurus Rex",
+// extinct: true, location: "North America",
 // lifeExpectancy: 28 },
 // { species: "Blue Whale",
 //  extinct: false,
 //   location: "Global",
 //    lifeExpectancy: 90 },
-// { species: "Woolly Mammoth", 
-// extinct: true, 
+// { species: "Woolly Mammoth",
+// extinct: true,
 // location: "Eurasia",
 //  lifeExpectancy: 60 },
 // { species: "Bengal Tiger",
@@ -99,37 +97,61 @@
 //    lifeExpectancy: 10 },
 // { species: "Giant Squid",
 //  extinct: false,
-//   location: "Global", 
+//   location: "Global",
 //   lifeExpectancy: 5 },
-// { species: "Gorilla", 
-// extinct: false, 
+// { species: "Gorilla",
+// extinct: false,
 // location: "Africa",
 //  lifeExpectancy: 35 },
 // { species: "Dodo",
-//  extinct: true, 
+//  extinct: true,
 //  location: "Mauritius",
 //   lifeExpectancy: 20 },
 // { species: "Kakapo",
 //  extinct: false,
-//   location: "New Zealand", 
+//   location: "New Zealand",
 //   lifeExpectancy: 90 },
-// { species: "Red Panda", 
-// extinct: false, 
-// location: "Himalayas", 
+// { species: "Red Panda",
+// extinct: false,
+// location: "Himalayas",
 // lifeExpectancy: 14 },
 // { species: "Snow Leopard",
-//  extinct: false, 
+//  extinct: false,
 //  location: "Central Asia",
 // lifeExpectancy: 10 }
 
+// DELETE:
 
-DELETE:
+// OLD
+// {/* <form action="/animals/delete/<%- animal._id %>" method="POST"></form>
 
-OLD
-<form action="/animals/delete/<%- animal._id %>" method="POST"></form>
+// <h1> Animal Detials</h1>
+// </a> <h3>Species<%= animal.species %></h3>
+//      <h3>Extinct:<%= animal.extinct %></h3>
+//     <h3>Location:<%= animal.location %></h3>
+//     <h3>Life Expectancy:<%= animal.lifeExpectancy %></h3> */}
 
-<h1> Animal Detials</h1>
-</a> <h3>Species<%= animal.species %></h3>
-     <h3>Extinct:<%= animal.extinct %></h3>
-    <h3>Location:<%= animal.location %></h3>
-    <h3>Life Expectancy:<%= animal.lifeExpectancy %></h3>
+///Server OLD
+// const express = require("express");
+// const { default: mongoose } = require("mongoose");
+// const app = express();
+
+// app.get("/", (req, res) => {
+//   res.send("default route");
+// });
+
+// app.use(express.static(__dirname + "public"));
+
+// // MIDDLEWARE
+// app.set("views", "./views");
+// app.set("view engine", "ejs");
+// app.use(express.urlencoded({ extended: false }));
+// app.use(express.json());
+
+// const animalController = require("./controllers/animals");
+// app.use("/animals", animalController);
+
+// // LISTENER
+// app.listen(3001, () =>
+//   console.log(`express is listening on port: ${process.env.PORT}`)
+// );

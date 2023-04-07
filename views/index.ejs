@@ -6,7 +6,7 @@
     </a>
  <% for(let i = 0; i < animals.length; i++) { %>
  <% if(animals[i]) { %>
-    <h3><a href="/animals/<%= animals[i]._id %>"><%=animals[i]?.species %></a></h3>
+    <h3><a href="/animals/show/<%= animals[i]._id %>"><%=animals[i]?.species %></a></h3>
     <p>Extinct: <%= animals[i]?.extinct %></p>
     <p>Location: <%= animals[i]?.location %></p>
 

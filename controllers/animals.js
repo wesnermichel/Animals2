@@ -3,19 +3,17 @@ const router = express.Router();
 const startAnimals = require("../db/animalSeed.js");
 const Animal = require("../models/animals");
 
-router.use(express.urlencoded({ extended: false }));
-// router.set("views", "./views");
-// router.set("view engine", "ejs");
+// router.use(express.urlencoded({ extended: false }));
 
 // INDEX
 router.get("/", async (req, res) => {
   const animals = await Animal.find({});
   res.render("index.ejs", { animals: animals });
 });
-// NEW ANIMAL
-// router.get("/new", (req, res) => {
-//   res.render("new.ejs");
-// });
+//NEW ANIMAL
+router.get("/new", (req, res) => {
+  res.render("/animals/new.ejs");
+});
 
 // Posts
 router.post("/", async (req, res) => {
@@ -32,22 +30,33 @@ router.get("/show/:id", async (req, res) => {
   res.render("show.ejs", { animal });
 });
 
-// // EDIT
-// router.get("edit/:id/", async (req, res) => {
-//   const animal = await Animal.findById(req.params.id);
-//   const index = animals.indexOf(animal);
-//   res.render("edit.ejs", { animal: animal, index: index });
-// });
+// EDIT
+router.get("edit/:id/", async (req, res) => {
+  const animal = await Animal.findById(req.params.id);
+  // const index = animals.indexOf(animal); that and line 39
+  res.render("/animals/edit.ejs", { animal: animal });
+  //line above I removed , { animal: animal, index: index });
+});
 
-// // SEED
-// router.get("/seed", async (req, res) => {
-//   await Animal.deleteMany({});
-//   await Animal.create(startAnimals);
-//   res.redirect("/animals");
-// });
+// SEED
+router.get("/seed", async (req, res) => {
+  await Animal.deleteMany({});
+  await Animal.create(startAnimals);
+  res.redirect("/animals");
+});
 
-// // UPDATE
-// router.put("/update/:id", async (req, res) => {
+// UPDATE
+
+router.put("/:id", async (req, res) => {
+  const id = req.params.id;
+  req.body.extinct = req.body.extinct === "on" ? true : false;
+  const animal = await Animal.findByIdAndUpdate(id, req.body, {
+    new: true,
+  });
+  res.redirect("/fruits");
+});
+
+// router.put("/:id", async (req, res) => {
 //   const animal = await Animal.findByIdAndUpdate(req.params.id, req.body, {
 //     new: true,
 //   });
@@ -55,6 +64,11 @@ router.get("/show/:id", async (req, res) => {
 // });
 
 // // DELETE
+
+router.delete("/delete/:id", async (req, res) => {
+  const animal = await Animal.findByIdAndDelete(req.params.id);
+  res.redirect("/animals");
+});
 
 // router.get("/delete/:id", async (req, res) => {
 //   const animalToDelete = await Animal.findById(req.params.id);
