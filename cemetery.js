@@ -155,3 +155,23 @@
 // app.listen(3001, () =>
 //   console.log(`express is listening on port: ${process.env.PORT}`)
 // );
+// ----------------------------------------------------------------
+
+// <body>
+// <h1>Animal Index</h1>
+//   <a href="/new %>">
+//         <button> Add Animal</button>
+//     </a>
+//  <% for(let i = 0; i < animals.length; i++) { %>
+//  <% if(animals[i]) { %>
+//     <h3><a href="/animals/<%= animals[i]._id %>"><%=animals[i]?.species %></a></h3>
+//     <p>Extinct: <%= animals[i]?.extinct %></p>
+//     <p>Location: <%= animals[i]?.location %></p>
+
+//     <p>Life Expectancy: <%= animals[i]?.lifeExpectancy %></p> 
+// <% }
+//   } %>
+  
+// </body>
+// </html>
+
